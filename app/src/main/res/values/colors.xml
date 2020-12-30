@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="splashImageBackground">#FF4e5d72</color>
+    <color name="placeholder_color">#d9d9d9</color>
+    <color name="elevated_background">#FFFFFF</color>
+    <color name="backdrop_background">#ef9a9a</color>
+    <color name="backdrop_text_color">#5d4037</color>
+</resources>

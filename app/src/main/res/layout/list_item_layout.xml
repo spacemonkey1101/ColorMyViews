@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="ufoData"
+            type="com.vedangj044.frisson.UFOData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/elevated_background"
+        app:cardPreventCornerOverlap="false"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MdcTypographyStyles.Headline5"
+                android:id="@+id/list_item_keywords"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:textSize="26sp"
+                app:layout_constraintEnd_toStartOf="@id/list_item_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setFirstLetterCapital="@{ufoData.keywords}"
+                tools:text="Silent craft accelerated" />
+
+            <ImageView
+                android:id="@+id/list_item_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/map_image"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImageCoil="@{ufoData.image}"
+                tools:src="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/list_item_calenderIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:contentDescription="@string/calender_icon"
+                android:src="@drawable/ic_baseline_calendar_today_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/list_item_keywords" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MdcTypographyStyles.Body2"
+                android:id="@+id/list_item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textSize="18sp"
+                app:getDateFromDateTime="@{ufoData.sightingDate}"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="@id/list_item_calenderIcon"
+                app:layout_constraintBottom_toBottomOf="@id/list_item_calenderIcon"
+                app:layout_constraintStart_toEndOf="@id/list_item_calenderIcon"
+                tools:text="Wed, 14 Nov 2019" />
+
+            <ImageView
+                android:id="@+id/list_item_locationIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/location_icon"
+                android:src="@drawable/ic_baseline_location_on_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/list_item_calenderIcon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.MdcTypographyStyles.Body2"
+                android:id="@+id/list_item_locationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/list_item_locationIcon"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@id/list_item_locationIcon"
+                android:gravity="center"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/list_item_locationIcon"
+                app:layout_constraintStart_toEndOf="@id/list_item_locationIcon"
+                app:layout_constraintTop_toTopOf="@id/list_item_locationIcon"
+                app:setLocation="@{ufoData}"
+                tools:text="Manchester, United States \u2022 " />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/shape_icon"
+                app:layout_constraintBottom_toBottomOf="@id/list_item_locationIcon"
+                app:layout_constraintStart_toEndOf="@id/list_item_locationText"
+                tools:src="@drawable/shape_fireball"
+                app:setShape="@{ufoData.shape}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
